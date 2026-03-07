@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Lucas Shinhe - Site de Captação (TDD First)
 
-## Getting Started
+Projeto em `Next.js` para apresentar o atleta Lucas Shinhe Lourenço e converter visitantes em apoiadores por doação e patrocínio.
 
-First, run the development server:
+## Stack
+
+- `Next.js` (App Router)
+- `TypeScript`
+- `Vitest` + `Testing Library` (unitário e integração)
+- `Playwright` (E2E)
+- `GitHub Actions` (quality gate)
+- Deploy alvo: `Vercel`
+
+## Regra principal de desenvolvimento
+
+Todo desenvolvimento segue **RED -> GREEN -> REFACTOR**:
+
+1. Escrever teste que falha.
+2. Implementar o mínimo para passar.
+3. Refatorar com segurança.
+4. Subir PR apenas com suíte verde.
+
+## Scripts
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run dev              # desenvolvimento local
+npm run lint             # lint
+npm run typecheck        # checagem de tipos
+npm run test:unit        # testes unitários
+npm run test:integration # testes de integração
+npm run test             # unit + integração
+npm run test:e2e         # testes e2e
+npm run test:all         # suíte completa
+npm run ci               # lint + typecheck + test + build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Estrutura de testes
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `tests/unit`: componentes e regras de domínio
+- `tests/integration`: routes/server-side behavior
+- `tests/e2e`: fluxos críticos do usuário
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Test Plan v1 (base técnica)
 
-## Learn More
+### Cenário 1 - Proposta principal na home
+- **Given:** visitante acessa a home
+- **When:** a página carrega
+- **Then:** nome do atleta e mensagem de missão aparecem com CTAs principais
 
-To learn more about Next.js, take a look at the following resources:
+### Cenário 2 - Interesse em patrocínio (API)
+- **Given:** payload inválido
+- **When:** POST em `/api/sponsorship-interest`
+- **Then:** resposta 400 com erros por campo
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Cenário 3 - Interesse em patrocínio (sucesso)
+- **Given:** payload válido
+- **When:** POST em `/api/sponsorship-interest`
+- **Then:** resposta 201 confirmando recebimento do lead
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Cenário 4 - Jornada E2E inicial
+- **Given:** aplicação em execução
+- **When:** visitante abre `/`
+- **Then:** CTAs de doação e patrocínio estão visíveis e corretos
 
-## Deploy on Vercel
+## CI Quality Gate
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+O pipeline em `.github/workflows/ci.yml` executa:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Lint
+2. Typecheck
+3. Testes unitários + integração
+4. Build
+5. E2E smoke
+
+Sem isso verde, não há merge para produção.
