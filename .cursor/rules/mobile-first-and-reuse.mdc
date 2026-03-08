@@ -1,0 +1,20 @@
+---
+description: Enforce mobile-first responsive behavior and reuse-first implementation
+globs: src/**/*.{ts,tsx}
+alwaysApply: false
+---
+
+# Mobile-First and Reuse-First
+
+- Start layout for mobile, then enhance with `md`, `lg`, `xl`.
+- Avoid desktop-only assumptions (hover-only actions, oversized fixed blocks).
+- Extract repeated sections into reusable components.
+- Keep media blocks adaptive for portrait/landscape/square assets.
+- Prefer semantic HTML and accessible controls.
+
+## Quick Example
+
+```tsx
+// ✅ mobile-first classes
+<div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3" />
+```

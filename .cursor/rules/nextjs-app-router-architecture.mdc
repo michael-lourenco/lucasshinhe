@@ -1,0 +1,24 @@
+---
+description: Next.js App Router patterns for pages, metadata, and server/client boundaries
+globs: src/**/*.{ts,tsx}
+alwaysApply: false
+---
+
+# Next.js App Router Architecture
+
+- Place routes under `src/app`.
+- Use Server Components by default; add `"use client"` only when needed.
+- Keep route-level SEO in `metadata`/`generateMetadata`.
+- Keep data shaping on server and pass minimal props to client components.
+- Co-locate route-specific UI in the route folder; move reusable pieces to `src/components`.
+
+## Quick Example
+
+```tsx
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Athlete Profile",
+  description: "High-performance athlete website",
+};
+```

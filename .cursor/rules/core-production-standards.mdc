@@ -1,0 +1,24 @@
+---
+description: Core engineering standards for production-ready athlete websites
+alwaysApply: true
+---
+
+# Core Production Standards
+
+- Use `Next.js` with **App Router** only (`src/app`).
+- Keep `TypeScript` in **strict mode**; do not bypass with `any` sem justificativa forte.
+- Prefer component-based architecture with reusable primitives in `src/components`.
+- Style with `TailwindCSS`; avoid scattered inline styles except tiny dynamic cases.
+- Build mobile-first layouts and expand to tablet/desktop via breakpoints.
+- Keep UI blocks composable and reusable across pages.
+- Deliver production-ready code: typed, testable, maintainable, and readable.
+
+## Quick Example
+
+```tsx
+// ✅ good: reusable typed component
+type SectionProps = { title: string; children: React.ReactNode };
+export function Section({ title, children }: SectionProps) {
+  return <section className="mx-auto max-w-6xl px-6">{children}</section>;
+}
+```

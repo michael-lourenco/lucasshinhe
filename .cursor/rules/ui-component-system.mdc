@@ -1,0 +1,20 @@
+---
+description: UI standards with Tailwind, shadcn/ui and Framer Motion
+globs: src/**/*.{ts,tsx}
+alwaysApply: false
+---
+
+# UI Component System
+
+- Build UI with `TailwindCSS` + reusable components.
+- Prefer `shadcn/ui` primitives for buttons, cards, dialogs, forms.
+- Use `Framer Motion` with restraint: motion must support hierarchy and storytelling.
+- Keep a consistent visual rhythm (spacing, typography, contrast, CTA emphasis).
+- Avoid one-off styles when a reusable variant solves the same need.
+
+## Quick Example
+
+```tsx
+// ✅ motion used to reinforce section entrance, not for noise
+<motion.section initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} />
+```
