@@ -1,5 +1,8 @@
 import Link from "next/link";
 
+import { ImmersiveMediaSlot } from "@/components/immersive-media-slot";
+import { mediaStorySections } from "@/lib/media-showcase";
+
 export default function PatrocinarPage() {
   return (
     <main className="min-h-screen overflow-hidden bg-[#05070d] text-zinc-100">
@@ -106,6 +109,21 @@ export default function PatrocinarPage() {
               </button>
             </div>
           </form>
+        </section>
+
+        <section className="space-y-4 border border-zinc-800 bg-zinc-950/50 p-6">
+          <div className="space-y-2">
+            <p className="text-xs uppercase tracking-[0.2em] text-amber-300">Assets de marca</p>
+            <h2 className="text-2xl font-black uppercase">Imersão para patrocinadores</h2>
+            <p className="text-zinc-300">
+              Inclua vídeos de impacto e fotos de competição para reforçar valor de exposição.
+            </p>
+          </div>
+          <div className="grid gap-4 md:grid-cols-3">
+            {mediaStorySections[1].assets.map((asset) => (
+              <ImmersiveMediaSlot key={asset.id} asset={asset} />
+            ))}
+          </div>
         </section>
 
         <div>

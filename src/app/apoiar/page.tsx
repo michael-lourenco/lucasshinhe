@@ -1,6 +1,8 @@
 import Link from "next/link";
 
 import { DonationSimulator } from "@/components/donation-simulator";
+import { ImmersiveMediaSlot } from "@/components/immersive-media-slot";
+import { mediaStorySections } from "@/lib/media-showcase";
 
 export default function ApoiarPage() {
   return (
@@ -51,6 +53,21 @@ export default function ApoiarPage() {
         </section>
 
         <DonationSimulator />
+
+        <section className="space-y-4 border border-zinc-800 bg-zinc-950/50 p-6">
+          <div className="space-y-2">
+            <p className="text-xs uppercase tracking-[0.2em] text-amber-300">Bastidores visuais</p>
+            <h2 className="text-2xl font-black uppercase">Veja para onde vai o apoio</h2>
+            <p className="text-zinc-300">
+              Use fotos e vídeos reais para mostrar evolução, treinos e conquistas.
+            </p>
+          </div>
+          <div className="grid gap-4 md:grid-cols-3">
+            {mediaStorySections[0].assets.map((asset) => (
+              <ImmersiveMediaSlot key={asset.id} asset={asset} />
+            ))}
+          </div>
+        </section>
 
         <section className="border border-zinc-800 bg-[#070b12] p-6">
           <h2 className="text-2xl font-black uppercase">Prefere apoiar como marca?</h2>

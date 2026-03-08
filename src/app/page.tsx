@@ -1,6 +1,8 @@
 import Link from "next/link";
 
+import { ImmersiveMediaSlot } from "@/components/immersive-media-slot";
 import { athleteProfile } from "@/lib/athlete-profile";
+import { mediaStorySections } from "@/lib/media-showcase";
 
 export default function Home() {
   return (
@@ -110,6 +112,37 @@ export default function Home() {
               </li>
             ))}
           </ul>
+        </section>
+
+        <section className="space-y-8 border border-zinc-800 bg-[#060a10] p-7 md:p-8">
+          <div className="space-y-3">
+            <p className="text-xs uppercase tracking-[0.2em] text-amber-300">Experiência imersiva</p>
+            <h2 className="text-3xl font-black uppercase md:text-4xl">
+              Conheça o atleta em cada etapa da jornada
+            </h2>
+            <p className="max-w-3xl text-zinc-300">
+              Esta seção foi preparada para você inserir fotos e vídeos em diferentes formatos
+              (horizontal, vertical e quadrado), conduzindo o visitante por uma narrativa visual
+              que aumenta conexão e confiança.
+            </p>
+          </div>
+
+          <div className="space-y-8">
+            {mediaStorySections.map((section) => (
+              <article key={section.id} className="space-y-4 border border-zinc-800 bg-zinc-950/50 p-5">
+                <div className="space-y-2">
+                  <p className="text-xs uppercase tracking-[0.2em] text-zinc-500">{section.eyebrow}</p>
+                  <h3 className="text-2xl font-black uppercase">{section.title}</h3>
+                  <p className="text-zinc-300">{section.description}</p>
+                </div>
+                <div className="grid gap-4 md:grid-cols-3">
+                  {section.assets.map((asset) => (
+                    <ImmersiveMediaSlot key={asset.id} asset={asset} />
+                  ))}
+                </div>
+              </article>
+            ))}
+          </div>
         </section>
       </div>
     </main>
