@@ -1,10 +1,37 @@
+import Image from "next/image";
 import Link from "next/link";
 
-import { ImmersiveMediaSlot } from "@/components/immersive-media-slot";
 import { athleteProfile } from "@/lib/athlete-profile";
 import { mediaStorySections } from "@/lib/media-showcase";
 
 export default function Home() {
+  const narrativeMoments = [
+    {
+      id: "preparo",
+      eyebrow: "Momento 01",
+      title: "Preparação diária",
+      description:
+        "Da rotina de treinos ao ajuste técnico fino, cada sessão constrói a consistência que leva o Lucas a competir em alto nível.",
+      asset: mediaStorySections[0].assets[0],
+    },
+    {
+      id: "disputa",
+      eyebrow: "Momento 02",
+      title: "Momento da disputa",
+      description:
+        "No tatame, o foco se transforma em execução. Aqui entram os registros mais intensos de luta, estratégia e controle emocional.",
+      asset: mediaStorySections[1].assets[0],
+    },
+    {
+      id: "proximo-passo",
+      eyebrow: "Momento 03",
+      title: "Rumo ao mundial",
+      description:
+        "O apoio recebido vira oportunidade real: representar o Brasil no cenário internacional com estrutura e preparação adequadas.",
+      asset: mediaStorySections[2].assets[1],
+    },
+  ];
+
   return (
     <main className="min-h-screen overflow-hidden bg-[#05070d] text-zinc-100">
       <div className="pointer-events-none absolute inset-0">
@@ -68,81 +95,132 @@ export default function Home() {
           </div>
         </header>
 
-        <section className="grid gap-4 md:grid-cols-3">
-          <article className="border border-zinc-800 bg-zinc-950/70 p-5">
-            <p className="text-xs uppercase tracking-[0.2em] text-zinc-500">Potencial</p>
-            <h2 className="mt-3 text-xl font-black uppercase">16 anos, alto rendimento</h2>
-            <p className="mt-2 text-sm text-zinc-300">
-              Talento jovem com rotina de treino intensa e foco em performance internacional.
-            </p>
-          </article>
-          <article className="border border-zinc-800 bg-zinc-950/70 p-5">
-            <p className="text-xs uppercase tracking-[0.2em] text-zinc-500">Projeção</p>
-            <h2 className="mt-3 text-xl font-black uppercase">Representação global</h2>
-            <p className="mt-2 text-sm text-zinc-300">
-              Presença em campeonato mundial e trajetória consistente em seletivas nacionais.
-            </p>
-          </article>
-          <article className="border border-zinc-800 bg-zinc-950/70 p-5">
-            <p className="text-xs uppercase tracking-[0.2em] text-zinc-500">Impacto</p>
-            <h2 className="mt-3 text-xl font-black uppercase">Marca com propósito</h2>
-            <p className="mt-2 text-sm text-zinc-300">
-              Apoiar Lucas conecta sua empresa a mérito esportivo, juventude e disciplina.
-            </p>
-          </article>
-        </section>
-
-        <section className="grid gap-6 border border-zinc-800 bg-[#070b12] p-7 md:grid-cols-[0.8fr_1.2fr]">
-          <div className="space-y-4">
-            <p className="text-xs uppercase tracking-[0.2em] text-amber-300">Conquistas</p>
-            <h2 className="text-3xl font-black uppercase">Títulos que constroem a lenda</h2>
-            <p className="text-zinc-300">
-              Resultados reais, recorrentes e recentes. O projeto não vende promessa vazia:
-              apresenta performance comprovada.
-            </p>
+        <section className="relative space-y-10">
+          <div className="grid gap-4 md:grid-cols-3">
+            <article className="border border-zinc-800 bg-zinc-950/70 p-5">
+              <p className="text-xs uppercase tracking-[0.2em] text-zinc-500">Potencial</p>
+              <h2 className="mt-3 text-xl font-black uppercase">16 anos, alto rendimento</h2>
+              <p className="mt-2 text-sm text-zinc-300">
+                Talento jovem com rotina de treino intensa e foco em performance internacional.
+              </p>
+            </article>
+            <article className="border border-zinc-800 bg-zinc-950/70 p-5">
+              <p className="text-xs uppercase tracking-[0.2em] text-zinc-500">Projeção</p>
+              <h2 className="mt-3 text-xl font-black uppercase">Representação global</h2>
+              <p className="mt-2 text-sm text-zinc-300">
+                Presença em campeonato mundial e trajetória consistente em seletivas nacionais.
+              </p>
+            </article>
+            <article className="border border-zinc-800 bg-zinc-950/70 p-5">
+              <p className="text-xs uppercase tracking-[0.2em] text-zinc-500">Impacto</p>
+              <h2 className="mt-3 text-xl font-black uppercase">Marca com propósito</h2>
+              <p className="mt-2 text-sm text-zinc-300">
+                Apoiar Lucas conecta sua empresa a mérito esportivo, juventude e disciplina.
+              </p>
+            </article>
           </div>
-          <ul className="grid gap-3 text-zinc-200 md:grid-cols-2">
-            {athleteProfile.achievements.map((achievement) => (
-              <li
-                key={`${achievement.title}-${achievement.year}`}
-                className="border border-zinc-800 bg-zinc-950/70 px-4 py-3 text-sm"
-              >
-                <span className="block font-semibold uppercase text-amber-200">{achievement.year}</span>
-                <span>{achievement.title}</span>
-              </li>
-            ))}
-          </ul>
-        </section>
 
-        <section className="space-y-8 border border-zinc-800 bg-[#060a10] p-7 md:p-8">
-          <div className="space-y-3">
-            <p className="text-xs uppercase tracking-[0.2em] text-amber-300">Experiência imersiva</p>
-            <h2 className="text-3xl font-black uppercase md:text-4xl">
-              Conheça o atleta em cada etapa da jornada
+          <section className="grid gap-6 border border-zinc-800 bg-[#070b12] p-7 md:grid-cols-[0.8fr_1.2fr]">
+            <div className="space-y-4">
+              <p className="text-xs uppercase tracking-[0.2em] text-amber-300">Conquistas</p>
+              <h2 className="text-3xl font-black uppercase">Resultados que comprovam potencial</h2>
+              <p className="text-zinc-300">
+                Os títulos abaixo resumem a consistência técnica que torna este projeto relevante para
+                apoiadores e patrocinadores.
+              </p>
+            </div>
+            <ul className="grid gap-3 text-zinc-200 md:grid-cols-2">
+              {athleteProfile.achievements.slice(0, 6).map((achievement) => (
+                <li
+                  key={`${achievement.title}-${achievement.year}`}
+                  className="border border-zinc-800 bg-zinc-950/70 px-4 py-3 text-sm"
+                >
+                  <span className="block font-semibold uppercase text-amber-200">{achievement.year}</span>
+                  <span>{achievement.title}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          <div className="border border-zinc-800 bg-[#060a10] p-6">
+            <p className="text-xs uppercase tracking-[0.2em] text-amber-300">Narrativa visual</p>
+            <h2 className="mt-2 text-2xl font-black uppercase md:text-3xl">
+              Da preparação ao momento decisivo
             </h2>
-            <p className="max-w-3xl text-zinc-300">
-              Esta seção foi preparada para você inserir fotos e vídeos em diferentes formatos
-              (horizontal, vertical e quadrado), conduzindo o visitante por uma narrativa visual
-              que aumenta conexão e confiança.
+            <p className="mt-2 max-w-3xl text-zinc-300">
+              As mídias abaixo entram como suporte à mensagem principal: menos volume, mais impacto.
+              O visitante conhece a evolução do atleta em passos claros, sem excesso de informação.
             </p>
           </div>
 
-          <div className="space-y-8">
-            {mediaStorySections.map((section) => (
-              <article key={section.id} className="space-y-4 border border-zinc-800 bg-zinc-950/50 p-5">
-                <div className="space-y-2">
-                  <p className="text-xs uppercase tracking-[0.2em] text-zinc-500">{section.eyebrow}</p>
-                  <h3 className="text-2xl font-black uppercase">{section.title}</h3>
-                  <p className="text-zinc-300">{section.description}</p>
+          {narrativeMoments.map((moment, index) => {
+            const mediaOnLeft = index % 2 === 0;
+            const hasSource = Boolean(moment.asset.src);
+            const isVideo = moment.asset.type === "video";
+
+            return (
+              <article key={moment.id} className="relative overflow-hidden border border-zinc-800 bg-[#070b12] p-6 md:p-8">
+                <div className="pointer-events-none absolute inset-x-0 -top-8 h-16">
+                  <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="h-full w-full text-zinc-900/35">
+                    <path
+                      d="M0,42 C240,120 460,0 700,42 C900,78 1040,24 1200,60 L1200,0 L0,0 Z"
+                      fill="currentColor"
+                    />
+                  </svg>
                 </div>
-                <div className="grid gap-4 md:grid-cols-3">
-                  {section.assets.map((asset) => (
-                    <ImmersiveMediaSlot key={asset.id} asset={asset} />
-                  ))}
+
+                <div className="grid items-center gap-7 md:grid-cols-2">
+                  <div className={`${mediaOnLeft ? "md:order-1" : "md:order-2"}`}>
+                    <div className="relative overflow-hidden border border-zinc-700 bg-zinc-900 shadow-[0_20px_80px_rgba(0,0,0,0.35)]">
+                      <div className="aspect-[16/10] overflow-hidden">
+                        {hasSource && !isVideo && moment.asset.src ? (
+                          <Image
+                            src={moment.asset.src}
+                            alt={moment.asset.alt}
+                            fill
+                            className="object-cover"
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                          />
+                        ) : null}
+
+                        {hasSource && isVideo && moment.asset.src ? (
+                          <video
+                            className="h-full w-full object-cover"
+                            controls
+                            preload="metadata"
+                            poster={moment.asset.poster}
+                          >
+                            <source src={moment.asset.src} />
+                            Seu navegador não suporta vídeo.
+                          </video>
+                        ) : null}
+
+                        {!hasSource ? (
+                          <div className="flex h-full w-full flex-col justify-between bg-[linear-gradient(140deg,_#0b1220,_#09090b)] p-4">
+                            <div>
+                              <p className="text-xs uppercase tracking-[0.2em] text-zinc-500">
+                                Placeholder {isVideo ? "vídeo" : "imagem"}
+                              </p>
+                              <p className="mt-2 text-xl font-black uppercase text-zinc-200">
+                                {moment.asset.title}
+                              </p>
+                            </div>
+                            <p className="text-xs text-zinc-500">{moment.asset.targetPath}</p>
+                          </div>
+                        ) : null}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className={`space-y-3 ${mediaOnLeft ? "md:order-2" : "md:order-1"}`}>
+                    <p className="text-xs uppercase tracking-[0.2em] text-amber-300">{moment.eyebrow}</p>
+                    <h2 className="text-3xl font-black uppercase">{moment.title}</h2>
+                    <p className="text-zinc-300">{moment.description}</p>
+                  </div>
                 </div>
               </article>
-            ))}
-          </div>
+            );
+          })}
         </section>
       </div>
     </main>
