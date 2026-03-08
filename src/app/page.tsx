@@ -33,19 +33,23 @@ export default function Home() {
   ];
 
   return (
-    <main className="min-h-screen overflow-hidden bg-[#05070d] text-zinc-100">
+    <main className="min-h-screen overflow-hidden bg-[radial-gradient(circle_at_20%_0%,#172033_0%,#05070d_45%,#04050a_100%)] text-zinc-100">
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute -top-32 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-amber-400/10 blur-3xl" />
-        <div className="absolute right-0 top-1/3 h-96 w-96 rounded-full bg-cyan-400/10 blur-3xl" />
+        <div className="absolute -top-32 left-1/2 h-[28rem] w-[28rem] -translate-x-1/2 rounded-full bg-amber-400/15 blur-3xl" />
+        <div className="absolute right-0 top-1/3 h-[26rem] w-[26rem] rounded-full bg-cyan-400/10 blur-3xl" />
+        <div className="absolute bottom-0 left-0 h-80 w-80 rounded-full bg-indigo-500/10 blur-3xl" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent,rgba(0,0,0,0.35))]" />
       </div>
 
-      <div className="relative mx-auto flex w-full max-w-6xl flex-col gap-10 px-6 py-12 md:px-10">
-        <header className="grid gap-8 border border-zinc-800 bg-[linear-gradient(110deg,_#07090f_15%,_#111827_55%,_#07090f_95%)] p-7 md:grid-cols-[1.15fr_0.85fr] md:p-10">
+      <div className="relative mx-auto flex w-full max-w-7xl flex-col gap-10 px-6 py-12 md:px-10">
+        <header className="relative grid gap-8 overflow-hidden rounded-[2rem] border border-zinc-700/80 bg-[linear-gradient(110deg,_#07090f_15%,_#111827_55%,_#07090f_95%)] p-7 shadow-[0_30px_120px_rgba(0,0,0,0.45)] md:grid-cols-[1.15fr_0.85fr] md:p-10">
+          <div className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full border border-amber-300/20" />
+          <div className="pointer-events-none absolute -left-24 bottom-4 h-52 w-52 rounded-full border border-cyan-300/10" />
           <div className="space-y-6">
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-amber-300">
               Projeto oficial de captação para o mundial
             </p>
-            <h1 className="text-4xl font-black uppercase leading-[0.95] md:text-7xl">
+            <h1 className="text-4xl font-black uppercase leading-[0.95] drop-shadow-[0_8px_24px_rgba(0,0,0,0.45)] md:text-7xl">
               Lucas Shinhe Lourenço
             </h1>
             <p className="max-w-2xl text-lg text-zinc-200">
@@ -56,13 +60,13 @@ export default function Home() {
 
             <div className="flex flex-col gap-3 pt-2 sm:flex-row">
               <Link
-                className="inline-flex h-12 items-center justify-center rounded-none border border-amber-300 bg-amber-300 px-6 font-bold uppercase tracking-wide text-zinc-950 transition hover:bg-amber-200"
+                className="inline-flex h-12 items-center justify-center rounded-none border border-amber-300 bg-amber-300 px-6 font-bold uppercase tracking-wide text-zinc-950 shadow-[0_10px_24px_rgba(251,191,36,0.25)] transition hover:-translate-y-0.5 hover:bg-amber-200"
                 href="/apoiar"
               >
                 Apoiar com doação
               </Link>
               <Link
-                className="inline-flex h-12 items-center justify-center rounded-none border border-zinc-500 px-6 font-bold uppercase tracking-wide transition hover:border-zinc-300"
+                className="inline-flex h-12 items-center justify-center rounded-none border border-zinc-500 bg-zinc-900/40 px-6 font-bold uppercase tracking-wide transition hover:-translate-y-0.5 hover:border-zinc-300"
                 href="/patrocinar"
               >
                 Quero patrocinar
@@ -70,7 +74,8 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="relative border border-zinc-800 bg-zinc-950 p-6">
+          <div className="relative overflow-hidden rounded-2xl border border-zinc-700 bg-zinc-950/90 p-6 shadow-[0_20px_80px_rgba(0,0,0,0.35)]">
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-transparent via-amber-300/70 to-transparent" />
             <p className="absolute right-6 top-4 text-[8rem] font-black leading-none text-zinc-900/80">
               01
             </p>
@@ -97,21 +102,21 @@ export default function Home() {
 
         <section className="relative space-y-10">
           <div className="grid gap-4 md:grid-cols-3">
-            <article className="border border-zinc-800 bg-zinc-950/70 p-5">
+            <article className="rounded-2xl border border-zinc-700/80 bg-zinc-950/70 p-5 shadow-[0_12px_40px_rgba(0,0,0,0.3)] transition hover:-translate-y-1 hover:border-zinc-500">
               <p className="text-xs uppercase tracking-[0.2em] text-zinc-500">Potencial</p>
               <h2 className="mt-3 text-xl font-black uppercase">16 anos, alto rendimento</h2>
               <p className="mt-2 text-sm text-zinc-300">
                 Talento jovem com rotina de treino intensa e foco em performance internacional.
               </p>
             </article>
-            <article className="border border-zinc-800 bg-zinc-950/70 p-5">
+            <article className="rounded-2xl border border-zinc-700/80 bg-zinc-950/70 p-5 shadow-[0_12px_40px_rgba(0,0,0,0.3)] transition hover:-translate-y-1 hover:border-zinc-500">
               <p className="text-xs uppercase tracking-[0.2em] text-zinc-500">Projeção</p>
               <h2 className="mt-3 text-xl font-black uppercase">Representação global</h2>
               <p className="mt-2 text-sm text-zinc-300">
                 Presença em campeonato mundial e trajetória consistente em seletivas nacionais.
               </p>
             </article>
-            <article className="border border-zinc-800 bg-zinc-950/70 p-5">
+            <article className="rounded-2xl border border-zinc-700/80 bg-zinc-950/70 p-5 shadow-[0_12px_40px_rgba(0,0,0,0.3)] transition hover:-translate-y-1 hover:border-zinc-500">
               <p className="text-xs uppercase tracking-[0.2em] text-zinc-500">Impacto</p>
               <h2 className="mt-3 text-xl font-black uppercase">Marca com propósito</h2>
               <p className="mt-2 text-sm text-zinc-300">
@@ -120,7 +125,15 @@ export default function Home() {
             </article>
           </div>
 
-          <section className="grid gap-6 border border-zinc-800 bg-[#070b12] p-7 md:grid-cols-[0.8fr_1.2fr]">
+          <section className="relative grid gap-6 overflow-hidden rounded-[1.75rem] border border-zinc-700/80 bg-[#070b12] p-7 md:grid-cols-[0.8fr_1.2fr]">
+            <div className="pointer-events-none absolute inset-x-0 -top-6 h-12">
+              <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="h-full w-full text-zinc-900/50">
+                <path
+                  d="M0,32 C220,120 480,0 720,42 C910,74 1040,24 1200,52 L1200,0 L0,0 Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </div>
             <div className="space-y-4">
               <p className="text-xs uppercase tracking-[0.2em] text-amber-300">Conquistas</p>
               <h2 className="text-3xl font-black uppercase">Resultados que comprovam potencial</h2>
@@ -142,7 +155,7 @@ export default function Home() {
             </ul>
           </section>
 
-          <div className="border border-zinc-800 bg-[#060a10] p-6">
+          <div className="rounded-[1.75rem] border border-zinc-700/80 bg-[#060a10] p-6 shadow-[0_20px_80px_rgba(0,0,0,0.3)]">
             <p className="text-xs uppercase tracking-[0.2em] text-amber-300">Narrativa visual</p>
             <h2 className="mt-2 text-2xl font-black uppercase md:text-3xl">
               Da preparação ao momento decisivo
@@ -159,7 +172,10 @@ export default function Home() {
             const isVideo = moment.asset.type === "video";
 
             return (
-              <article key={moment.id} className="relative overflow-hidden border border-zinc-800 bg-[#070b12] p-6 md:p-8">
+              <article
+                key={moment.id}
+                className="relative overflow-hidden rounded-[1.75rem] border border-zinc-700/80 bg-[#070b12] p-6 shadow-[0_20px_90px_rgba(0,0,0,0.35)] transition hover:border-zinc-500 md:p-8"
+              >
                 <div className="pointer-events-none absolute inset-x-0 -top-8 h-16">
                   <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="h-full w-full text-zinc-900/35">
                     <path
@@ -171,7 +187,7 @@ export default function Home() {
 
                 <div className="grid items-center gap-7 md:grid-cols-2">
                   <div className={`${mediaOnLeft ? "md:order-1" : "md:order-2"}`}>
-                    <div className="relative overflow-hidden border border-zinc-700 bg-zinc-900 shadow-[0_20px_80px_rgba(0,0,0,0.35)]">
+                    <div className="relative overflow-hidden rounded-2xl border border-zinc-700 bg-zinc-900 shadow-[0_20px_80px_rgba(0,0,0,0.35)]">
                       <div className="aspect-[16/10] overflow-hidden">
                         {hasSource && !isVideo && moment.asset.src ? (
                           <Image
